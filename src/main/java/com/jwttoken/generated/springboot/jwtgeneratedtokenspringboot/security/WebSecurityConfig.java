@@ -65,12 +65,12 @@ public class WebSecurityConfig { // extends WebSecurityConfigurerAdapter {
     http.csrf(csrf -> csrf.disable())
         .exceptionHandling(exception -> exception.authenticationEntryPoint(unauthorizedHandler))
         .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-        .authorizeHttpRequests().
-          antMatchers("/api/auth/**").permitAll()
+        .authorizeHttpRequests()
+            .antMatchers("/api/auth/**").permitAll()
             .antMatchers("/api/test/**").permitAll()
             .antMatchers("/api/sign-out/**").permitAll()
             .antMatchers("/expenses/**").permitAll()
-            .antMatchers("//api/budgets/**").permitAll()
+            .antMatchers("/api/budgets").permitAll()
             .antMatchers("/emp-groups/**").permitAll()
               .anyRequest().authenticated()
 
